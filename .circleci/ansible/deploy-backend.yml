@@ -4,6 +4,8 @@
 - name: "configuration play." 
   hosts: web
   user: ubuntu
+  become_method: sudo
+  become_user: root
   gather_facts: false
   vars:
     - ansible_python_interpreter: /usr/bin/python3
@@ -16,10 +18,11 @@
             timeout: 600
 
       - name: "install python for Ansible."
+        become: yes
         apt:
           name: python3
           update_cache: yes
-          
+
   environment:
   - NODE_ENV: production
   - VERSION: "1"
