@@ -5,16 +5,18 @@
     path: ~/backend-app
     state: directory
 
+
+- name: "Unarchive backend files"
+  unarchive:
+    src: .circleci/files/artifact.tar.gz
+    dest: ~/backend-app
+    remote_src: true
+
 - name: "Installing Node Dependencies"
   shell: |
     cd ~/backend-app
     npm i
 
-- name: "Unarchive backend files"
-  unarchive:
-    src: artifact.tar.gz
-    dest: ~/backend-app
-    remote_src: true
 
 - name: "Executing Node app with PM2"
   shell: |
