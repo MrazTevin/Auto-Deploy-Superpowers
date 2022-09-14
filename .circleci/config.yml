@@ -352,19 +352,23 @@ jobs:
             command: |
               cd backend
               tar -czvf artifact.tar.gz dist/* package*
+
+              cd ..
+              cp ~/project/backend/artifact.tar.gz ~/project/.circleci/ansible/roles/deploy/tasks/
+              ls -l
         # - run:
         #     name: Create directory
         #     command: |
         #       mkdir -p .circleci/ansible/roles/deploy/files
-        - run:
-            name: Copy to deploy roles
-            command: |
-              # get into circle folder
+        # - run:
+        #     name: Copy to deploy roles
+        #     command: |
+        #       # get into circle folder
              
-              cd ..
-              cp ~/project/backend/artifact.tar.gz ~/tasks
-              pwd
-              ls -l
+        #       cd ..
+        #       cp ~/project/backend/artifact.tar.gz ~/tasks
+        #       pwd
+        #       ls -l
         - run:
             name: Deploy backend
             command: |
