@@ -361,7 +361,7 @@ jobs:
             command: |
               # get into circle folder
              
-              cd .circleci
+              cd ..
               cp ~/project/backend/artifact.tar.gz ~/tasks
               pwd
               ls -l
