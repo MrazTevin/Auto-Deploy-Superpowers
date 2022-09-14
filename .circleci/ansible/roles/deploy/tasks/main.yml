@@ -7,8 +7,9 @@
 
 
 - name: "Unarchive backend files"
+  become: true
   unarchive:
-    src: files/artifact.tar.gz
+    src: ~/project/artifact.tar.gz
     dest: ~/backend-app
     remote_src: true
 
