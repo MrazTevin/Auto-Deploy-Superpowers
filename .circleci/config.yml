@@ -356,9 +356,9 @@ jobs:
             name: Copy to deploy roles
             command: |
               # get into circle folder
-              mkdir -p .circleci/ansible/roles/deploy/files
+             
               cd .circleci
-              cp ~/project/backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
+              cp ~/project/backend/artifact.tar.gz .circleci/ansible/roles/deploy
         - run:
             name: Deploy backend
             command: |
