@@ -362,7 +362,7 @@ jobs:
               # get into circle folder
              
               cd .circleci
-              cp ~/project/backend/artifact.tar.gz ansible/roles/deploy/tasks/
+              cp ~/project/backend/artifact.tar.gz ~/tasks
               pwd
               ls -l
         - run:
