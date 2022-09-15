@@ -399,14 +399,15 @@ jobs:
                   'Name=instance-state-name,Values=running' \
                 --query 'Reservations[*].Instances[*].PublicIpAddress' \
                 --output text)
-              export API_URL="http://${BACKEND_IP}:3030/api/status"
+              
+              export API_URL="http://${BACKEND_IP}:3030"
               echo "${API_URL}"
-              if curl -s -v --connect-timeout 30 --retry-connrefused 5 "${API_URL}" | grep "ok"
-              then 
+              if curl "${API_URL}/api/status" | grep "ok"
+              then
                 return 0
-              else 
+              else
                 return 1
-              fi
+              fi  
         - run:
             name: Frontend smoke test.
             command: |
