@@ -430,19 +430,20 @@ jobs:
         - run:
             name: export old workflow to kvdb.io
             command: |
-              export OLD_WORKFLOW_ID=$(aws cloudformation \
-                list-exports --query "Exports[?Name==\`WorkflowID\`].Value" \
-                --no-paginate --output text)
-              echo "Old workflow ID: ${OLD_WORKFLOW_ID}"
-              curl http://kvdb.io/${KVDB_BUCKET}/old_workflow_id -d "${OLD_WORKFLOW_ID}"
+             export OldWorkflowID=$(aws cloudformation \
+              list-exports --query "Exports[?Name==\`WorkflowID\`].Value" \
+              --no-paginate --output text | grep -o '[^-]*$' )
+              echo $OldWorkflowID >> ~/project/OldWorkflowID.txt
+              cat ~/project/OldWorkflowID.txt
         - run:
             name: Update cloudfront distribution
             command: |
-              aws cloudformation deploy \
-              --template-file cloudfront.yml \
-              --stack-name udapeople-cloudfront \
-              --parameter-overrides WorkflowID=k0aehenb4 \
-              --profile udapeople
+             aws cloudformation deploy \
+              --template-file .circleci/files/cloudfront.yml \
+              --stack-name InitialStack \
+              --parameter-overrides WorkflowID="udapeople-${CIRCLE_WORKFLOW_ID:0:7}" \
+              --tags project=udapeople
+              echo OldWorkflowID: cat ~/project/OldWorkflowID.txt
         # Here's where you will add some code to rollback on failure  
         - destroy-environment
         - revert-migrations
