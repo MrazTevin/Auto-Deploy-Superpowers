@@ -435,6 +435,9 @@ jobs:
                 --no-paginate --output text)
                 echo "Old workflow ID: ${OLD_WORKFLOW_ID}"
                 curl http://kvdb.io/${KVDB_BUCKET}/old_workflow_id -d "${OLD_WORKFLOW_ID}"
+                
+                echo $OLD_WORKFLOW_ID >> ~/project/OLD_WORKFLOW_ID.txt
+                cat ~/project/OLD_WORKFLOW_ID.txt
         - run:
             name: Update cloudfront distribution
             command: |
@@ -443,7 +446,8 @@ jobs:
               --stack-name udapeople-cloudfront \
               --parameter-overrides WorkflowID="udapeople-${CIRCLE_WORKFLOW_ID:0:7}" \
               --tags project=udapeople
-              
+             echo OLD_WORKFLOW_ID.txt: cat ~/project/OLD_WORKFLOW_ID.txt
+             echo CurrentWorkflowID: "${CIRCLE_WORKFLOW_ID:0:7}"
         # Here's where you will add some code to rollback on failure  
         - destroy-environment
         - revert-migrations
