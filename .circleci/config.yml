@@ -337,6 +337,7 @@ jobs:
         - run:
               name: Install dependencies
               command: |
+                 cd backend
                  npm install
         - run:
             name: Package Backend
@@ -346,7 +347,7 @@ jobs:
 
               cd ..
               ## zip the directory
-              tar -C backend -czvf artifact.tar.gz .
+              tar -C backend -czvf artifact.tar.gz dist/* package*
 
               pwd 
               ls -l
