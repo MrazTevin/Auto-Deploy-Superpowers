@@ -347,7 +347,7 @@ jobs:
 
               cd ..
               ## zip the directory
-              tar -C backend -czvf artifact.tar.gz dist/* package*
+              tar -C backend -czvf artifact.tar.gz .
 
               pwd 
               ls -l
