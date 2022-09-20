@@ -35,5 +35,8 @@ These screenshots should be included in your code repository in the root folder.
    14. Provide a screenshot showing the evidence of a healthy backend application. 
        The backend endpoint status should show a healthy response. [URL04_SCREENSHOT]
    15. Provide a screenshot of your Prometheus server showing UP state [URL05_SCREENSHOT]
+   
+Your presentation should be in PDF format named "presentation.pdf" and should be included 
+in your code repository root folder.
 
 ```
