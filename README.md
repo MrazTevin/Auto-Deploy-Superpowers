@@ -27,10 +27,13 @@ These screenshots should be included in your code repository in the root folder.
     8. Successful promotion job. [SCREENSHOT08]
     9. Successful cleanup job. [SCREENSHOT09]
    10. Only deploy on pushed to master branch. [SCREENSHOT10]
-   11. Provide a screenshot of a graph of your EC2 instance including available memory, available disk space, and CPU usage. [SCREENSHOT11]
+   11. Provide a screenshot of a graph of your EC2 instance including available memory,
+       available disk space, and CPU usage. [SCREENSHOT11]
    12. Provide a screenshot of an alert that was sent by Prometheus. [SCREENSHOT12]
-   13. Provide a screenshot showing the evidence of deployed and functioning front-end application in CloudFront (aka, your production front-end).                [URL03_SCREENSHOT]
-   14. Provide a screenshot showing the evidence of a healthy backend application. The backend endpoint status should show a healthy response.                    [URL04_SCREENSHOT]
+   13. Provide a screenshot showing the evidence of deployed and functioning 
+       front-end application in CloudFront (aka, your production front-end). [URL03_SCREENSHOT]
+   14. Provide a screenshot showing the evidence of a healthy backend application. 
+       The backend endpoint status should show a healthy response. [URL04_SCREENSHOT]
    15. Provide a screenshot of your Prometheus server showing UP state [URL05_SCREENSHOT]
 
 ```
